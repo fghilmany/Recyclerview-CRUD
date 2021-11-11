@@ -11,7 +11,6 @@ import com.fghilmany.myapplication.databinding.ItemRvBinding
 
 class Adapter: RecyclerView.Adapter<Adapter.AdapterViewHolder>() {
 
-    var listener: Listener? = null
     var listData = mutableListOf<Data>()
 
 
@@ -60,10 +59,6 @@ class Adapter: RecyclerView.Adapter<Adapter.AdapterViewHolder>() {
                 result.apply {
                     tvName.text = name
                     tvDesc.text = desc
-                    if (listener != null)
-                        ivRemove.setOnClickListener {
-                            listener?.onRemoveItem(result)
-                        }
                     itemView.setOnClickListener {
                         DialogAddItemFragment.newInstance(true, result, position).show((itemView.context as FragmentActivity).supportFragmentManager, DialogAddItemFragment.TAG)
                     }

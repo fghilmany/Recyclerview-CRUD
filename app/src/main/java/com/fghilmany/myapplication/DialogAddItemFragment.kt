@@ -38,8 +38,6 @@ class DialogAddItemFragment : DialogFragment() {
             fragment.arguments = args
             return fragment
         }
-
-        var listener: Listener? = null
     }
 
     override fun onCreateView(
@@ -81,30 +79,7 @@ class DialogAddItemFragment : DialogFragment() {
 
             btAddItem.setOnClickListener {
 
-                val id = UUID.randomUUID().toString()
-                val name = etName.text.toString()
-                val desc = etDesc.text.toString()
 
-                if (isEdit){
-                    val data = Data(
-                        data?.id, name, desc
-                    )
-
-                    val isMove = position?:0 != etCustomPosition.text.toString().toInt()
-                    position = etCustomPosition.text.toString().toInt()
-                    listener?.onEditItem(data, position, isMove)
-                }else{
-                    val data = Data(
-                        id, name, desc
-                    )
-
-                    val getPosition: Int? = if (etCustomPosition.text.toString().isBlank()) null else etCustomPosition.text.toString().toInt()
-                    position = if (tilCustomPosition.isVisible) getPosition else null
-                    listener?.onAddItem(data, position)
-                }
-
-
-                dismiss()
             }
         }
 
