@@ -48,10 +48,9 @@ class MainActivity : AppCompatActivity(), Listener {
             listAdapter.notifyItemRemoved(index)
             listAdapter.notifyItemInserted(position?:0)
 
-
         }else{
             listAdapter.editItem(data)
-            listAdapter.notifyItemChanged(position?:0)
+            listAdapter.notifyItemRangeChanged((position?:0)-1, position?:0)
         }
     }
 
