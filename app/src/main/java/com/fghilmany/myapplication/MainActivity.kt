@@ -18,10 +18,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        DialogAddItemFragment.listener = this
-
         listAdapter.listData = listData()
-        listAdapter.listener = this
 
         with(binding.rvList){
             layoutManager = LinearLayoutManager(this@MainActivity)
